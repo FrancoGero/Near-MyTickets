@@ -1,0 +1,10 @@
+source ./deployar.sh
+source ./limpiar.sh
+
+near call $ID new '{"owner_id": "'$ID'"}' --accountId $ID
+
+near call $ID add_user '{"account_id": "dariofs.testnet", "role": "Professional", "category": {"Programmer": {"lenguages": ["Angular", "Cplusplus"], "area": ["Blockchain", "Backend"]}}}' --accountId $ID
+
+near call $ID nft_mint_service '{"metadata": {"fullname": "Sebastian Gonzalez", "profile_photo_url": "foto.png"}}' --accountId dariofs.testnet --amount 1
+
+near call $ID get_user_tokens '{"account_id": "dariofs.testnet"}' --accountId dariofs.testnet
